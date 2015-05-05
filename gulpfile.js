@@ -4,7 +4,6 @@ var template = require('gulp-ng-templates');
 var rename = require('gulp-rename');
 var ngAnnotate = require('gulp-ng-annotate');
 var uglify = require('gulp-uglify');
-var gulp = require('gulp');
 var git = require('gulp-git');
 var bump = require('gulp-bump');
 var filter = require('gulp-filter');
@@ -37,7 +36,7 @@ gulp.task('template', function() {
       header: 'angular.module("<%= module %>").run(["$templateCache", function($templateCache) {'
 
     }))
-    .pipe(gulp.dest('.tmp'));
+    .pipe(gulp.dest(prebuildDir));
 });
 
 // Then save the main provider in the same tmp dir
